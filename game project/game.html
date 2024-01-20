@@ -1,0 +1,54 @@
+<html>
+	<head>
+    	<style>
+        
+        		#first
+                {
+                	height:20%;
+                    width:20%;
+                    background-color:rgb(32, 225, 106);
+                }
+        </style>
+    	
+    	
+    </head>
+    
+    <body>
+
+    		 <h1>Reaction time calculation game  </h1>
+             <p id="timer">time : 1:00</p>
+             <p id = "total">total score: 0</p>
+             <div onclick="func()" id="first" > </div>
+            
+
+    </body>
+    <script>
+        var count=0;
+        function func()
+        {
+           count+=1;
+           var a="total score:"+count;
+           document.getElementById("total").innerHTML=a;
+           document.getElementById("first").style.marginLeft=Math.random()*600+"px";
+           document.getElementById("first").style.marginTop=Math.random()*300+"px";
+
+        }
+        var seconds=60;
+        function timer()
+        {
+            seconds--;
+             var min=Math.floor(seconds/60);
+            var rem= seconds%60;
+            if(rem<10)
+            rem="0"+rem;
+            document.getElementById("timer").innerHTML="time : "+min+":"+rem;
+            if(seconds==0)
+            {
+                clearTimeout(timerId);
+                window.alert("game over");
+                location.reload();
+            }
+        }
+        var timerId = setInterval(timer,1000);
+    </script>
+</html>
